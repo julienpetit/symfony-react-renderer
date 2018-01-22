@@ -74,6 +74,15 @@
             "ref": "751ee6748c1026fa4350c155d1b3a77b7ddca69c"
         }
     },
+    "limenius/react-bundle": {
+        "version": "v2.0.0"
+    },
+    "limenius/react-renderer": {
+        "version": "v2.0.0"
+    },
+    "nacmartin/phpexecjs": {
+        "version": "v2.0.0"
+    },
     "namshi/jose": {
         "version": "7.2.3"
     },
@@ -200,6 +209,9 @@
     "symfony/polyfill-mbstring": {
         "version": "v1.6.0"
     },
+    "symfony/process": {
+        "version": "v4.0.3"
+    },
     "symfony/property-access": {
         "version": "v4.0.3"
     },
@@ -265,6 +277,15 @@
     },
     "symfony/validator": {
         "version": "v4.0.3"
+    },
+    "symfony/webpack-encore-pack": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "a2f276eff6e95ca94be135d2d3e5c1247c6f8807"
+        }
     },
     "symfony/yaml": {
         "version": "v4.0.3"
