@@ -1,0 +1,118 @@
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Field, reduxForm} from 'redux-form';
+import {required, length} from 'redux-form-validators';
+import {createRequest} from '../../actions';
+
+class ReviewAdd extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(values) {
+        this.props.createRequest(values);
+    }
+
+    renderField({input, label, type, meta: {touched, error, warning}}) {
+        return (
+            <div className='form-group'>
+                <label>
+                    {label}
+                </label>
+                <div>
+                    <input {...input}
+                           placeholder={label}
+                           type={type}
+                           className={`form-control ${touched && error ? 'is-invalid' : ''}`}/>
+                    <div className="invalid-feedback">
+                        {touched && (
+                            (error && <span>{error}</span>) ||
+                            (warning && <span>{warning}</span>)
+                        )}
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    render() {
+        const {
+            isLoading,
+            initialValues,
+            pristine,
+            handleSubmit,
+            reset,
+            submitting,
+        } = this.props;
+
+        return (
+            <div>
+                {isLoading && (
+                    <p>Loading...</p>
+                )}
+
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-6">
+                            <form onSubmit={handleSubmit(this.handleSubmit)}>
+                                <div>
+                                    <Field name="firstname"
+                                           component={this.renderField}
+                                           label="Firstname"
+                                           validate={[required(), length({minimum: 2})]}/>
+                                </div>
+                                <div>
+                                    <Field name="lastname"
+                                           component={this.renderField}
+                                           label="Lastname"
+                                           validate={[required(), length({minimum: 2})]}/>
+                                </div>
+                                <div>
+                                    <Field name="age"
+                                           component={this.renderField}
+                                           label="Age"
+                                           validate={[required(), length({minimum: 2})]}/>
+                                </div>
+                                <div>
+                                    <Field name="note"
+                                           component={this.renderField}
+                                           label="Note"
+                                           validate={[required(), length({minimum: 2})]}/>
+                                </div>
+                                <div>
+                                    <Field name="description"
+                                           component={this.renderField}
+                                           label="Description"
+                                           className='form-control'
+                                           validate={[required(), length({minimum: 2})]}/>
+                                </div>
+                                <hr/>
+                                <div>
+                                    <button type="submit" disabled={pristine || submitting} className='btn btn-success'>
+                                        Submit
+                                    </button>
+                                    <button type="button" disabled={pristine || submitting} onClick={reset}
+                                            className='btn btn-default'>Clear Values
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = ({auth, reviews}) => ({
+    isLoading: reviews.add.isLoading,
+    initialValues: reviews.add.user,
+});
+
+const form = reduxForm({
+    form: 'review',
+})(ReviewAdd);
+
+export default connect(mapStateToProps, {createRequest})(form);

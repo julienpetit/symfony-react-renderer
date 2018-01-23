@@ -6,8 +6,20 @@ import { fetchListRequest } from '../../actions';
 class UserList extends PureComponent {
 
     componentWillMount() {
-        this.props.fetchListRequest();
+        if (this.props.users.length === 0) {
+            this.props.fetchListRequest();
+        }
     };
+
+    renderRow(user) {
+        return (
+            <tr key={`userlist-row-${user.id}`}>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+                <td><Link to={`/user/${user.id}/edit`}>Edit</Link></td>
+            </tr>
+        )
+    }
 
     render() {
         const {
@@ -17,12 +29,10 @@ class UserList extends PureComponent {
 
         return (
             <div className="login">
-                {users.map((user) => (
-                    <div key={user.email}>
-                        {user.email}
-                        <Link to={`/user/${user.id}/edit`}>Edit</Link>
-                    </div>
-                ))}
+
+                <table className="table table-bordered">
+                    {users.map(this.renderRow)}
+                </table>
 
                 {isLoading && (
                     <p>Loading...</p>

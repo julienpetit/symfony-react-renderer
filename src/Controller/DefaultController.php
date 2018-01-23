@@ -13,9 +13,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/{something}", name="home", defaults={"something"=null})
+     * @Route("/reviews", name="review_list")
      */
-    public function indexAction(Request $request)
+    public function listAction(Request $request)
+    {
+        return $this->render('default/index.html.twig');
+    }
+
+    /**
+     * @Route("/reviews/create", name="review_create")
+     */
+    public function createAction(Request $request)
     {
         return $this->render('default/index.html.twig');
     }
