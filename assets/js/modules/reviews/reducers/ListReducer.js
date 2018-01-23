@@ -26,6 +26,15 @@ export default function (state = INITIAL_STATE, action) {
                 hasErrors: true,
             };
 
+        case t.CREATE_REQUEST:
+            return {
+                ...state,
+                reviews: [
+                    ...state.reviews,
+                    action.payload,
+                ],
+            };
+
         default:
             return state;
     }
