@@ -12,8 +12,7 @@ import {
 
 export function* getAllUsers(action) {
     try {
-        const token = yield select(({ auth }) => auth.token);
-        const result = yield call(api.getAll, action, token);
+        const result = yield call(api.getAll, action);
         yield put(fetchListSuccess(result));
     }
     catch (error) {
@@ -23,9 +22,8 @@ export function* getAllUsers(action) {
 
 export function* getUser(action) {
     try {
-        const token = yield select(({ auth }) => auth.token);
-        const loginResult = yield call(api.get, action, token);
-        yield put(fetchSuccess(loginResult));
+        const result = yield call(api.get, action);
+        yield put(fetchSuccess(result));
     }
     catch (error) {
         yield put(fetchFailure(error));
@@ -34,9 +32,8 @@ export function* getUser(action) {
 
 export function* updateUser(action) {
     try {
-        const token = yield select(({ auth }) => auth.token);
-        const loginResult = yield call(api.update, action, token);
-        yield put(updateSuccess(loginResult));
+        const result = yield call(api.update, action);
+        yield put(updateSuccess(result));
     }
     catch (error) {
         yield put(updateFailure(error));

@@ -1,0 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ redux_store('appStore', {}) }}
+    {{ react_component('App') }}
+{% endblock %}

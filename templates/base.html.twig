@@ -5,18 +5,15 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
 
         {% block stylesheets %}
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
             <link href="{{asset('build/css/main.css')}}" rel="stylesheet">
         {% endblock %}
     </head>
     <body>
-    <div id="react-container">
 
-    {% block body %}
-        {{ redux_store('appStore', {}) }}
-        {{ react_component('App') }}
-        {% endblock %}
+        {% include 'navbar.html.twig' %}
+        {% block body %}{% endblock %}
 
-    </div>
         {% block javascripts %}
             <script src="{{ asset('build/app.js') }}"></script>
         {% endblock %}

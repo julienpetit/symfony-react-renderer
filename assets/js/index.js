@@ -1,40 +1,24 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
-import App from './containers/AppContainer';
-import { Switch, Route } from 'react-router';
-import PrivateRoute from './containers/PrivateRouteContainer';
+import {Provider} from 'react-redux';
+import {ConnectedRouter} from 'react-router-redux';
+import {Switch, Route} from 'react-router';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
-import HomePage from './pages/HomePage';
-import LoginPage from './pages/LoginPage';
-import LogoutPage from './pages/LogoutPage';
-import AccountPage from './pages/AccountPage';
-import UsersPage from './pages/UsersPage';
+import UserListPage from './modules/users/components/UserList';
 import UserEditPage from './modules/users/components/UserEdit';
 
-import { history } from './store';
-// import registerServiceWorker from './registerServiceWorker';
+import {history} from './store';
 
-const App2 = ({ store }) => (
+const App = ({store}) => (
     <Provider store={store}>
         <ConnectedRouter history={history}>
-            <App>
-                <Header />
-                <Switch>
-                    <Route exact path="/" component={HomePage}/>
-                    <Route exact path="/login" component={LoginPage}/>
-                    <Route exact path="/logout" component={LogoutPage}/>
-                    <PrivateRoute exact path="/users" component={UsersPage}/>
-                    <PrivateRoute exact strict path="/user/:id/edit" component={UserEditPage}/>
-                    <PrivateRoute exact path="/account" component={AccountPage}/>
-                </Switch>
-                <Footer />
-            </App>
+            <Switch>
+                <Route exact path="/users" component={UserListPage}/>
+                <Route exact strict path="/reviews/new" component={UserEditPage}/>
+                {/*<Route exact path="/reviews" component={ReviewsPage}/>*/}
+            </Switch>
         </ConnectedRouter>
     </Provider>
 );
 
-export default App2;
-// registerServiceWorker();
+export default App;
+
