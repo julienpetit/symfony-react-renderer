@@ -11,6 +11,7 @@ Encore
     .addEntry('app', ['babel-polyfill', 'whatwg-fetch', './assets/js/app.js'])
     // will output as web/build/app.css
     // .addStyleEntry('css/main', './assets/sass/layout.scss')
+    .enablePostCssLoader()
     // allow sass/scss files to be processed
     .enableSassLoader()
     // create hashed filenames (e.g. app.abc123.css)

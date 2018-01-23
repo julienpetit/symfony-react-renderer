@@ -3,13 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        {% block stylesheets %}
+            <link href="{{asset('build/css/main.css')}}" rel="stylesheet">
+        {% endblock %}
     </head>
     <body>
     <div id="react-container">
 
     {% block body %}
-            {{ react_component('App') }}
+        {{ redux_store('appStore', {}) }}
+        {{ react_component('App') }}
         {% endblock %}
 
     </div>
