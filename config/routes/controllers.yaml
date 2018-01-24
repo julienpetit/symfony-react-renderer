@@ -1,3 +1,6 @@
-controllers:
+controllers_localized:
+    prefix: /{_locale}
     resource: ../../src/Controller/
     type: annotation
+    defaults:
+        _locale: 'fr'

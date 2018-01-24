@@ -2,5 +2,5 @@
 
 {% block body %}
     {{ redux_store('appStore', {}) }}
-    {{ react_component('App') }}
+    {{ react_component('App', { props: { locale: app.request.locale } }) }}
 {% endblock %}

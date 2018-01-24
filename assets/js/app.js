@@ -8,11 +8,13 @@ import appStore from './store';
 const mainNode = (_initialProps, context) => {
     // const store = ReactOnRails.getStore('recipesStore')
     // const {location, base, serverSide} = context
+    console.log(_initialProps);
+    console.log(context);
 
     const store = ReactOnRails.getStore('appStore')
 
     const reactComponent = (
-        <Com store={store} />
+        <Com store={store} locale={_initialProps.locale}/>
     )
     return reactComponent
 }
