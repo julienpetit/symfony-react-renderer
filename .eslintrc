@@ -2,5 +2,11 @@
   "extends": "airbnb",
   "globals": {
     "Translator": true,
+    "fetch": true,
+  },
+  "rules": {
+    "react/jsx-filename-extension": true,
+    "react/forbid-prop-types": true,
+    "import/prefer-default-export": true
   }
 }

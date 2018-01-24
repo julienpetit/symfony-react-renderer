@@ -1,9 +1,7 @@
 import { fork, all } from 'redux-saga/effects';
-import users from './modules/users';
 import reviews from './modules/reviews';
 
 const sagas = [
-  users.sagas,
   reviews.sagas,
 ];
 

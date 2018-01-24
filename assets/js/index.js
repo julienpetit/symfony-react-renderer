@@ -5,7 +5,6 @@ import { ConnectedRouter } from 'react-router-redux';
 import { Switch, Route } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
-import UserListPage from './modules/users/components/UserList';
 import ReviewAddPage from './modules/reviews/components/Add';
 import ReviewListPage from './modules/reviews/components/List';
 
@@ -16,7 +15,6 @@ const App = ({ store, locale }) => (
     <ConnectedRouter history={history}>
       <BrowserRouter basename={`/${locale}`}>
         <Switch>
-          <Route exact path="/users" component={UserListPage} />
           <Route exact strict path="/reviews" component={ReviewListPage} />
           <Route exact strict path="/reviews/create" component={ReviewAddPage} />
         </Switch>

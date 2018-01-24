@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchListRequest } from '../../actions';
 
 class ReviewList extends PureComponent {
   componentWillMount() {
-    if (this.props.reviews.length === 0) {
-      this.props.fetchListRequest();
-    }
+      if (this.props.reviews.length === 0) {
+          this.props.fetchListRequest();
+      }
   }
 
   renderRow(review) {
@@ -53,7 +54,13 @@ class ReviewList extends PureComponent {
   }
 }
 
-const mapStateToProps = ({ auth, reviews }) => ({
+ReviewList.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  reviews: PropTypes.array,
+  fetchListRequest: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ reviews }) => ({
   isLoading: reviews.list.isLoading,
   reviews: reviews.list.reviews,
 });

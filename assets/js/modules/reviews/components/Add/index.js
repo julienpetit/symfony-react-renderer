@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import { NavLink } from 'react-router-dom';
 import { required, length, numericality } from 'redux-form-validators';
@@ -94,7 +95,9 @@ class ReviewAdd extends Component {
                 />
                 <hr />
                 <div>
-                  <button type="submit" disabled={pristine || submitting} className="btn btn-success">
+                  <button type="submit"
+                          disabled={pristine || submitting}
+                          className="btn btn-success">
                     {Translator.trans('review.form.submit.label')}
                   </button>
                   <button
@@ -115,7 +118,16 @@ class ReviewAdd extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, reviews }) => ({
+ReviewAdd.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  pristine: PropTypes.bool.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  reset: PropTypes.func.isRequired,
+  submitting: PropTypes.bool.isRequired,
+  createRequest: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = ({ reviews }) => ({
   isLoading: reviews.add.isLoading,
   initialValues: reviews.add.user,
 });

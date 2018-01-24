@@ -1,1 +1,3 @@
-export const NAME = 'reviews';
+export default {
+  NAME: 'reviews',
+};

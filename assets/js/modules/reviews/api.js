@@ -1,8 +1,8 @@
-import { handleApiErrors } from '../../lib/api-errors';
+import { handleApiErrors } from '../../lib/api-errors';
 
 const api = {
 
-  getAll(action) {
+  getAll() {
     return fetch('/api/reviews', {
       method: 'GET',
       headers: {
