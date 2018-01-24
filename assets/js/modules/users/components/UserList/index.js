@@ -4,47 +4,46 @@ import { connect } from 'react-redux';
 import { fetchListRequest } from '../../actions';
 
 class UserList extends PureComponent {
-
-    componentWillMount() {
-        if (this.props.users.length === 0) {
-            this.props.fetchListRequest();
-        }
-    };
-
-    renderRow(user) {
-        return (
-            <tr key={`userlist-row-${user.id}`}>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td><Link to={`/user/${user.id}/edit`}>Edit</Link></td>
-            </tr>
-        )
+  componentWillMount() {
+    if (this.props.users.length === 0) {
+      this.props.fetchListRequest();
     }
+  }
 
-    render() {
-        const {
-            users,
-            isLoading,
-        } = this.props;
+  renderRow(user) {
+    return (
+      <tr key={`userlist-row-${user.id}`}>
+        <td>{user.username}</td>
+        <td>{user.email}</td>
+        <td><Link to={`/user/${user.id}/edit`}>Edit</Link></td>
+      </tr>
+    );
+  }
 
-        return (
-            <div className="login">
+  render() {
+    const {
+      users,
+      isLoading,
+    } = this.props;
 
-                <table className="table table-bordered">
-                    {users.map(this.renderRow)}
-                </table>
+    return (
+      <div className="login">
 
-                {isLoading && (
-                    <p>Loading...</p>
+        <table className="table table-bordered">
+          {users.map(this.renderRow)}
+        </table>
+
+        {isLoading && (
+        <p>Loading...</p>
                 )}
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = ({ auth, users }) => ({
-    isLoading: users.list.isLoading,
-    users: users.list.users,
+  isLoading: users.list.isLoading,
+  users: users.list.users,
 });
 
 export default connect(mapStateToProps, { fetchListRequest })(UserList);

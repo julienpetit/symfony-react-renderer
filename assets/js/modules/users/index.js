@@ -5,4 +5,6 @@ import * as constants from './constants';
 import reducer from './reducers';
 import sagas from './sagas';
 
-export default { actions, constants, reducer, sagas };
+export default {
+  actions, constants, reducer, sagas,
+};

@@ -3,12 +3,12 @@ import users from './modules/users';
 import reviews from './modules/reviews';
 
 const sagas = [
-    users.sagas,
-    reviews.sagas,
+  users.sagas,
+  reviews.sagas,
 ];
 
 function* rootSaga() {
-    yield all(sagas.map(saga => fork(saga)));
+  yield all(sagas.map(saga => fork(saga)));
 }
 
 export default rootSaga;

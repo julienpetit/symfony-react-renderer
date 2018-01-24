@@ -5,8 +5,8 @@ import users from './modules/users';
 import reviews from './modules/reviews';
 
 export default combineReducers({
-    [users.constants.NAME]: users.reducer,
-    [reviews.constants.NAME]: reviews.reducer,
-    form: formReducer,
-    router: routerReducer,
+  [users.constants.NAME]: users.reducer,
+  [reviews.constants.NAME]: reviews.reducer,
+  form: formReducer,
+  router: routerReducer,
 });
