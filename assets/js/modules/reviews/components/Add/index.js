@@ -8,6 +8,7 @@ class ReviewAdd extends Component {
 
     constructor(props) {
         super(props);
+
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -60,41 +61,36 @@ class ReviewAdd extends Component {
                                 <div>
                                     <Field name="firstname"
                                            component={this.renderField}
-                                           label="Firstname"
+                                           label={Translator.trans('review.form.firstname.label')}
                                            validate={[required(), length({minimum: 2})]}/>
                                 </div>
                                 <div>
                                     <Field name="lastname"
                                            component={this.renderField}
-                                           label="Lastname"
-                                           validate={[required(), length({minimum: 2})]}/>
-                                </div>
-                                <div>
-                                    <Field name="age"
-                                           component={this.renderField}
-                                           label="Age"
+                                           label={Translator.trans('review.form.lastname.label')}
                                            validate={[required(), length({minimum: 2})]}/>
                                 </div>
                                 <div>
                                     <Field name="note"
                                            component={this.renderField}
-                                           label="Note"
+                                           label={Translator.trans('review.form.note.label')}
                                            validate={[required(), length({minimum: 2})]}/>
                                 </div>
                                 <div>
                                     <Field name="description"
                                            component={this.renderField}
-                                           label="Description"
+                                           label={Translator.trans('review.form.description.label')}
                                            className='form-control'
                                            validate={[required(), length({minimum: 2})]}/>
                                 </div>
                                 <hr/>
                                 <div>
                                     <button type="submit" disabled={pristine || submitting} className='btn btn-success'>
-                                        Submit
+                                        {Translator.trans('review.form.submit.label')}
                                     </button>
                                     <button type="button" disabled={pristine || submitting} onClick={reset}
-                                            className='btn btn-default'>Clear Values
+                                            className='btn btn-default'>
+                                        {Translator.trans('review.form.reset.label')}
                                     </button>
                                 </div>
                             </form>

@@ -1,0 +1,6 @@
+review.form.firstname.label: Firstname
+review.form.lastname.label: Lastname
+review.form.note.label: Notes
+review.form.description.label: Description
+review.form.submit.label: Send
+review.form.reset.label: Clear values
