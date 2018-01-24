@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {required, length} from 'redux-form-validators';
 import {createRequest} from '../../actions';
+import Rate from '../Rate';
 
 class ReviewAdd extends Component {
 
@@ -60,31 +61,26 @@ class ReviewAdd extends Component {
                             <NavLink to='/reviews'>{Translator.trans('review.form.reviews.link')}</NavLink>
                             <h1>{Translator.trans('review.form.title')}</h1>
                             <form onSubmit={handleSubmit(this.handleSubmit)}>
-                                <div>
-                                    <Field name="firstname"
-                                           component={this.renderField}
-                                           label={Translator.trans('review.form.firstname.label')}
-                                           validate={[required(), length({minimum: 2})]}/>
-                                </div>
-                                <div>
-                                    <Field name="lastname"
-                                           component={this.renderField}
-                                           label={Translator.trans('review.form.lastname.label')}
-                                           validate={[required(), length({minimum: 2})]}/>
-                                </div>
-                                <div>
-                                    <Field name="note"
-                                           component={this.renderField}
-                                           label={Translator.trans('review.form.note.label')}
-                                           validate={[required(), length({minimum: 2})]}/>
-                                </div>
-                                <div>
-                                    <Field name="description"
-                                           component={this.renderField}
-                                           label={Translator.trans('review.form.description.label')}
-                                           className='form-control'
-                                           validate={[required(), length({minimum: 2})]}/>
-                                </div>
+                                <Field name="firstname"
+                                       component={this.renderField}
+                                       label={Translator.trans('review.form.firstname.label')}
+                                       validate={[required(), length({minimum: 2})]}/>
+
+                                <Field name="lastname"
+                                       component={this.renderField}
+                                       label={Translator.trans('review.form.lastname.label')}
+                                       validate={[required(), length({minimum: 2})]}/>
+
+                                <Field name="note"
+                                       component={Rate}
+                                       label={Translator.trans('review.form.note.label')}
+                                       validate={[required(), length({minimum: 2})]}/>
+
+                                <Field name="description"
+                                       component={this.renderField}
+                                       label={Translator.trans('review.form.description.label')}
+                                       className='form-control'
+                                       validate={[required(), length({minimum: 2})]}/>
                                 <hr/>
                                 <div>
                                     <button type="submit" disabled={pristine || submitting} className='btn btn-success'>
