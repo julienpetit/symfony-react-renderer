@@ -9,22 +9,15 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class DefaultController
  * @package App\Controller
+ *
  */
 class DefaultController extends Controller
 {
     /**
-     * @Route("/reviews", name="review_list")
+     * @Route("/", name="home")
      */
-    public function listAction(Request $request)
+    public function homeAction(Request $request)
     {
-        return $this->render('default/index.html.twig');
-    }
-
-    /**
-     * @Route("/reviews/create", name="review_create")
-     */
-    public function createAction(Request $request)
-    {
-        return $this->render('default/index.html.twig');
+        return $this->render('default/home.html.twig');
     }
 }

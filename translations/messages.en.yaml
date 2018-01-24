@@ -18,3 +18,5 @@ review.list.reset.label: Clear values
 validation.form.required: This field is required
 validation.form.email: Invalid email
 validation.form.too_short: The value is too short
+
+home.choose_language.title: Choose your language

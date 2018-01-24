@@ -20,3 +20,4 @@ validation.form.required: Ce champ est requis
 validation.form.email: Email invalide
 validation.form.too_short: Ce champ n'est pas assez long
 
+home.choose_language.title: Choississez votre langue

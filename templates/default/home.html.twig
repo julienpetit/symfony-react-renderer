@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-md-center">
+
+            <div class="col-8">
+                <h1>{{ 'home.choose_language.title'|trans }}</h1>
+
+                <div class="row">
+                    <div class="col-6">
+                        <a href="{{ path('review_list', {'_locale': 'fr'}) }}" class="btn btn-primary btn-block">FR</a>
+                    </div>
+                    <div class="col-6">
+                        <a href="{{ path('review_list', {'_locale': 'en'}) }}" class="btn btn-danger btn-block">EN</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
