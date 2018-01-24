@@ -29,11 +29,18 @@ class ReviewList extends PureComponent {
         } = this.props;
 
         return (
-            <div className="login">
+            <div className="container">
+                <Link to='/reviews/create' className='btn btn-primary mt-3'>{Translator.trans('review.list.add.label')}</Link>
 
-                <Link to='/reviews/create' className='btn btn-primary'>Add review</Link>
-
-                <table className="table table-bordered">
+                <table className="table table-bordered table-striped mt-3">
+                    <thead>
+                        <tr>
+                            <th>{Translator.trans('review.list.firstname.label')}</th>
+                            <th>{Translator.trans('review.list.lastname.label')}</th>
+                            <th>{Translator.trans('review.list.description.label')}</th>
+                            <th>{Translator.trans('review.list.note.label')}</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         {reviews.map(this.renderRow)}
                     </tbody>

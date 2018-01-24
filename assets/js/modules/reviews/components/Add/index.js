@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
+import { NavLink } from 'react-router-dom';
 import {required, length} from 'redux-form-validators';
 import {createRequest} from '../../actions';
 
@@ -41,7 +42,6 @@ class ReviewAdd extends Component {
     render() {
         const {
             isLoading,
-            initialValues,
             pristine,
             handleSubmit,
             reset,
@@ -54,9 +54,11 @@ class ReviewAdd extends Component {
                     <p>Loading...</p>
                 )}
 
-                <div className="container">
-                    <div className="row">
+                <div className="container p-3">
+                    <div className="row justify-content-md-center">
                         <div className="col-md-6">
+                            <NavLink to='/reviews'>{Translator.trans('review.form.reviews.link')}</NavLink>
+                            <h1>{Translator.trans('review.form.title')}</h1>
                             <form onSubmit={handleSubmit(this.handleSubmit)}>
                                 <div>
                                     <Field name="firstname"

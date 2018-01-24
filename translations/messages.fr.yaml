@@ -4,3 +4,19 @@ review.form.note.label: Note
 review.form.description.label: Description
 review.form.submit.label: Envoyer
 review.form.reset.label: Réinitialiser
+review.form.title: Ajouter un avis
+review.form.reviews.link: Retourner sur la liste des avis
+
+
+review.list.add.label: Ajouter un avis
+review.list.firstname.label: Prénom
+review.list.lastname.label: Nom
+review.list.note.label: Note
+review.list.description.label: Description
+review.list.submit.label: Envoyer
+review.list.reset.label: Réinitialiser
+
+validation.form.required: Ce champ est requis
+validation.form.email: Email invalide
+validation.form.too_short: Ce champ n'est pas assez long
+
