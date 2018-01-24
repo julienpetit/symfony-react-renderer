@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Field, reduxForm} from 'redux-form';
 import {NavLink} from 'react-router-dom';
-import {required, length} from 'redux-form-validators';
+import {required, length, numericality} from 'redux-form-validators';
 import {createRequest} from '../../actions';
 import Rate from '../Rate';
 
@@ -74,7 +74,7 @@ class ReviewAdd extends Component {
                                 <Field name="note"
                                        component={Rate}
                                        label={Translator.trans('review.form.note.label')}
-                                       validate={[required(), length({minimum: 2})]}/>
+                                       validate={[required(), numericality({'>=': 0, '<=': 5})]}/>
 
                                 <Field name="description"
                                        component={this.renderField}
