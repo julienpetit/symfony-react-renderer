@@ -3,6 +3,7 @@ import * as t from '../actionTypes';
 const INITIAL_STATE = {
   review: null,
   isLoading: false,
+  created: false,
 };
 
 export default function (state = INITIAL_STATE, action) {
@@ -25,14 +26,21 @@ export default function (state = INITIAL_STATE, action) {
         isLoading: true,
       };
 
-    case t.UPDATE_SUCCESS:
+    case t.CREATE_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
+    case t.CREATE_SUCCESS:
       return {
         ...state,
         isLoading: false,
+        created: true,
         review: action.payload,
       };
 
-    case t.UPDATE_FAILURE:
+    case t.CREATE_FAILURE:
       return {
         ...state,
         isLoading: false,

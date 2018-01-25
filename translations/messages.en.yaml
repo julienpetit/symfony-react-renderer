@@ -6,6 +6,8 @@ review.form.submit.label: Send
 review.form.reset.label: Clear values
 review.form.title: New review
 review.form.reviews.link: Go back to reviews
+review.form.create.success: Review created !
+review.form.create.error: An error occurred when creating the review
 
 review.list.add.label: Add a new review
 review.list.firstname.label: Firstname
@@ -14,6 +16,8 @@ review.list.note.label: Notes
 review.list.description.label: Description
 review.list.submit.label: Send
 review.list.reset.label: Clear values
+review.list.fetch.error: An error occurred when fetching the list
+
 
 validation.form.required: This field is required
 validation.form.email: Invalid email

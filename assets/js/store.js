@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
+import thunk from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
@@ -15,6 +16,7 @@ const store = createStore(
   {},
   compose(
     applyMiddleware(sagaMiddleware),
+    applyMiddleware(thunk),
     applyMiddleware(routerMiddleware(history)),
     applyMiddleware(logger),
   ),

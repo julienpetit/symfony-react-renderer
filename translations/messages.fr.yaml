@@ -6,7 +6,8 @@ review.form.submit.label: Envoyer
 review.form.reset.label: Réinitialiser
 review.form.title: Ajouter un avis
 review.form.reviews.link: Retourner sur la liste des avis
-
+review.form.create.success: Avis ajouté !
+review.form.create.error: Une erreur s'est produite lors de la création de votre avis
 
 review.list.add.label: Ajouter un avis
 review.list.firstname.label: Prénom
@@ -15,6 +16,7 @@ review.list.note.label: Note
 review.list.description.label: Description
 review.list.submit.label: Envoyer
 review.list.reset.label: Réinitialiser
+review.list.fetch.error: Une erreur s'est produite lors de la récupération de la liste
 
 validation.form.required: Ce champ est requis
 validation.form.email: Email invalide
