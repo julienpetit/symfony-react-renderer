@@ -5,7 +5,7 @@ import {Field, reduxForm} from 'redux-form';
 import {NavLink} from 'react-router-dom';
 import {required, length, numericality} from 'redux-form-validators';
 import {createRequest} from '../../actions';
-import Rate from '../Rate';
+import RateForm from '../RateForm';
 
 class ReviewAdd extends Component {
     constructor(props) {
@@ -91,7 +91,7 @@ class ReviewAdd extends Component {
 
                                         <Field
                                             name="note"
-                                            component={Rate}
+                                            component={RateForm}
                                             label={Translator.trans('review.form.note.label')}
                                             validate={[required(), numericality({'>=': 0, '<=': 5})]}
                                         />

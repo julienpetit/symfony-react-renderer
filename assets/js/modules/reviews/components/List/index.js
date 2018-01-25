@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchListRequest } from '../../actions';
+import RateStars from '../RateStars';
 
 class ReviewList extends PureComponent {
   componentWillMount() {
@@ -17,7 +18,7 @@ class ReviewList extends PureComponent {
         <td>{review.firstname}</td>
         <td>{review.lastname}</td>
         <td>{review.description}</td>
-        <td>{review.note}</td>
+        <td><RateStars value={review.note}/></td>
       </tr>
     );
   }

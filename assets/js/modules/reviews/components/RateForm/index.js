@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import RateStars from '../RateStars';
 
-class Rate extends PureComponent {
+class RateForm extends PureComponent {
   constructor(props) {
     super(props);
 
@@ -23,7 +24,7 @@ class Rate extends PureComponent {
   }
 
   render() {
-    const { label, input: { value }, meta: { touched, error, warning } } = this.props;
+    const { label, input: { value, onChange }, meta: { touched, error, warning } } = this.props;
 
     return (
       <div className="form-group">
@@ -31,7 +32,7 @@ class Rate extends PureComponent {
           {label}
         </label>
         <div>
-          {Array(5).fill().map((_, i) => this.renderStar(i + 1, value))}
+          <RateStars value={value} onChange={onChange} />
         </div>
         <div className={`${touched && error ? 'is-invalid' : ''}`}>
           {value && (
@@ -49,7 +50,7 @@ class Rate extends PureComponent {
   }
 }
 
-Rate.propTypes = {
+RateForm.propTypes = {
   input: PropTypes.shape({
     onChange: PropTypes.func,
     value: PropTypes.number.string,
@@ -62,4 +63,4 @@ Rate.propTypes = {
   }),
 };
 
-export default Rate;
+export default RateForm;
